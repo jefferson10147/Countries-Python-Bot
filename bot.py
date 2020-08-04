@@ -21,6 +21,7 @@ def start_handlers_and_dispachers():
     start_handler = CommandHandler('start', start)
     dispatcher.add_handler(start_handler)
 
+
 if __name__ == '__main__':
     start_handlers_and_dispachers()
     updater.start_polling()

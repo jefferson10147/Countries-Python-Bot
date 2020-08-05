@@ -22,13 +22,14 @@ def start(update, context):
 
 def search(update, context):
     text = update.message.text
+    country_facts = None
 
     if text in flags.keys():
         country_facts = get_country_by_name(flags[text])
     elif text in flags.values():
         country_facts = get_country_by_name(text)
 
-    if country_facts == None:
+    if country_facts == None or country_facts == Null:
         context.bot.send_message(chat_id = update.effective_chat.id, text = "*Rino didn't find that country*")
     else:
         context.bot.send_message(chat_id = update.effective_chat.id, text = country_facts)

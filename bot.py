@@ -26,13 +26,13 @@ def search(update, context):
 
     if text in flags.keys():
         country_facts = get_country_by_name(flags[text])
-    elif text in flags.values():
+    elif ''.join([text[0].upper(),text[1:].lower()]) in flags.values():
         country_facts = get_country_by_name(text)
 
-    if country_facts == None or country_facts == Null:
-        context.bot.send_message(chat_id = update.effective_chat.id, text = "*Rino didn't find that country*")
-    else:
+    if country_facts:
         context.bot.send_message(chat_id = update.effective_chat.id, text = country_facts)
+    else:
+        context.bot.send_message(chat_id = update.effective_chat.id, text = "*Rino didn't find that country*")
 
 
 def start_handlers_and_dispachers():

@@ -17,7 +17,7 @@ dispatcher = updater.dispatcher
 
 
 def start(update, context):
-    context.bot.send_message(chat_id = update.effective_chat.id, text = '*Rino says hi*')
+    context.bot.send_message(chat_id = update.effective_chat.id, text = '*Rino says hi 🦏*')
 
 
 def search(update, context):
@@ -32,7 +32,7 @@ def search(update, context):
     if country_facts:
         context.bot.send_message(chat_id = update.effective_chat.id, text = country_facts)
     else:
-        context.bot.send_message(chat_id = update.effective_chat.id, text = "*Rino didn't find that country*")
+        context.bot.send_message(chat_id = update.effective_chat.id, text = "*Rino didn't find that country🦏*")
 
 
 def start_handlers_and_dispachers():

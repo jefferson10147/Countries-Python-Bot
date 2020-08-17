@@ -7,7 +7,7 @@ This bot can gives a simple country information, just receiving an emoji flag li
 ## How to run this bot on your linux machine
 * You need to install telegram bot library:
 ```bash
- $ pip install python-telegram-bot
+$ pip install python-telegram-bot
 ```
 
 * Make a config.ini file where you have to put telegram API data:
@@ -18,7 +18,7 @@ token = YOUR_BOT_TELEGRAM_API_ BOT_TOKEN
 
 * Then just run on your terminal:
 ```bash
-    $ python3 bot.py
+$ python3 bot.py
  ```
 
 ### Special Thanks

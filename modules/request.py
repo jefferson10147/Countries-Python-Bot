@@ -2,7 +2,7 @@ import requests
 
 
 def get_country_by_name(country_name):
-    url = f'https://restcountries.eu/rest/v2/name/{country_name}?fullText=true'
+    url = f'https://restcountries.eu/rest/v2/name/{country_name}'
     response = requests.get(url)
     
     if response.status_code == 200:

@@ -1,4 +1,4 @@
-countries_alpha_code = {
+countries_code = {
     "AF" : "Afghanistan",
     "AX" : "Åland Islands",
     "AL" : "Albania",
@@ -121,7 +121,7 @@ countries_alpha_code = {
     "KI" : "Kiribati",
     "KW" : "Kuwait",
     "KG" : "Kyrgyzstan",
-    "LA" : "Lao People's Democratic Republic",
+    "LA" : "Laos",
     "LV" : "Latvia",
     "LB" : "Lebanon",
     "LS" : "Lesotho",
@@ -130,7 +130,7 @@ countries_alpha_code = {
     "LI" : "Liechtenstein",
     "LT" : "Lithuania",
     "LU" : "Luxembourg",
-    "MO" : "Macao",
+    "MO" : "Macau",
     "MK" : "Macedonia",
     "MG" : "Madagascar",
     "MW" : "Malawi",

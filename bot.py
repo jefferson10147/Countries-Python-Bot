@@ -6,6 +6,7 @@ from telegram.ext import MessageHandler
 from telegram.ext import Filters
 from modules.emoji_flags import flags
 from modules.request import get_country_by_name
+from modules.request import translate_text_into_flags
 
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.DEBUG)
@@ -26,8 +27,12 @@ def search(update, context):
 
     if text in flags.keys():
         country_facts = get_country_by_name(flags[text])
+        
     elif ''.join([text[0].upper(),text[1:].lower()]) in flags.values():
         country_facts = get_country_by_name(text)
+    
+    else:
+        country_facts = translate_text_into_flags(text)
 
     if country_facts:
         context.bot.send_message(chat_id = update.effective_chat.id, text = country_facts)

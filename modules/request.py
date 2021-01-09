@@ -38,8 +38,8 @@ def translate_text_into_flags(text):
             if code.upper() in countries_code.keys():
                 country_name = countries_code[code.upper()]
 
-                for key in flags.keys():
-                    if flags[key] == country_name:
+                for key, country in flags.items():
+                    if country == country_name:
                         translate_text += key
 
                 i += 2
@@ -49,3 +49,29 @@ def translate_text_into_flags(text):
         i += 1
 
     return translate_text
+
+
+def translate_flags_into_text(text):
+    i = 0
+    translated_text = ''
+
+    while i < len(text):
+
+        if i + 1 < len(text):
+            flag = text[i] + text[i + 1]
+
+            if flag.upper() in flags.keys():
+                country_name = flags[flag]
+
+                for key, country in countries_code.items():
+                    if country_name == country:
+                        translated_text += key.lower()
+                        break
+
+                i += 2
+                continue
+
+        translated_text += text[i]
+        i += 1
+
+    return translated_text

@@ -7,6 +7,7 @@ from telegram.ext import Filters
 from modules.emoji_flags import flags
 from modules.request import get_country_by_name
 from modules.request import translate_text_into_flags
+from modules.request import translate_flags_into_text
 
 
 logging.basicConfig(
@@ -15,15 +16,17 @@ logging.basicConfig(
 )
 
 config_parser = ConfigParser()
-config_parser.read('config.ini')
-TOKEN = config_parser['BOT']['token']
+config_parser.read("config.ini")
+TOKEN = config_parser["BOT"]["token"]
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
 
 def start(update, context):
     context.bot.send_message(
-        chat_id=update.effective_chat.id, text='*Rino says hi 🦏*')
+        chat_id=update.effective_chat.id,
+        text="*Rino says hi 🦏*"
+    )
 
 
 def search(update, context):
@@ -51,10 +54,23 @@ def search(update, context):
         )
 
 
+def translate(update, context):
+    text = ' '.join(context.args)
+    translated = translate_flags_into_text(text)
+    
+    context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text=translated
+    )
+
+
 def start_handlers_and_dispachers():
-    start_handler = CommandHandler('start', start)
+    start_handler = CommandHandler("start", start)
+    translate_flags_handler = CommandHandler("translate", translate)
     search_handler = MessageHandler(Filters.text, search)
+
     dispatcher.add_handler(start_handler)
+    dispatcher.add_handler(translate_flags_handler)
     dispatcher.add_handler(search_handler)
 
 

@@ -12,7 +12,7 @@ $ pip install python-telegram-bot
 * Make a config.ini file where you have to put telegram API data:
 ```
 [BOT]
-token = YOUR_BOT_TELEGRAM_API_ BOT_TOKEN
+token = YOUR_BOT_TELEGRAM_API_TOKEN
 ```
 
 * Then just run on your terminal:
